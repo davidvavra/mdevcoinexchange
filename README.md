@@ -1,4 +1,4 @@
-# mdevcoinexchange
+# mDevCoinExchange
 Conference gamification inspired by cryptocurrency market
 
 ## Try it
