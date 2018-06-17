@@ -1,0 +1,24 @@
+<hr />
+<div class="right">
+    Your address: <strong>{{userId}}</strong>
+    <div *ngIf="noPassword | async"><a (click)="protectClicked()">Protect your account</a></div>
+</div> 
+<h1>mDevCoinExchange</h1>
+<div *ngIf="noPassword | async">
+    {{offline ? "" : "&nbsp;"}}
+</div>
+<div *ngIf="offline">
+    You are offline
+</div>
+<hr />
+
+<div style="color:#aaaaaa">Your wallet:</div>
+<table>
+    <tr *ngFor="let balance of balances | async">
+        <td style="font-weight:bold">{{balance.amount | number:'0.0-5'}}&nbsp;</td>
+        <td style="font-weight:bold"><abbr title="{{balance.coinName}}" (click)="abbrClicked(balance)">{{balance.coinCode}}</abbr> =&nbsp;</td>
+        <td class="right">{{valueInCzk(balance) | currency:'CZK':'code':'0.0-0':'cs'}}</td>
+        <td style="color:#aaaaaa">&nbsp;({{balance.exchangeRateToCzk | currency:'CZK':'code':'0.2-5':'cs'}}/1)</td>
+    </tr>
+    <tr><td colspan="2" style="font-weight:bold">Total:</td><td style="font-weight:bold" class="right">{{total | async | currency:'CZK':'code':'0.0-0':'cs'}}</td></tr>
+</table>

@@ -1,0 +1,14 @@
+<form (ngSubmit)="onSubmit()" #cashOutForm="ngForm">
+  <p>You can pick up a prize near registrations for your coins. After you type value of the prize in CZK, it will be subtracted
+    from all your coins evenly based on current rate. After the transaction is confirmed, the attendant will give you your
+    prize. Note that you can't cash out to actual money, only prizes (until they run out).</p>
+  <div>
+    <label for="amountInCzk">Value of the prize:</label>
+    <input type="number" id="amountInCzk" [(ngModel)]="cashOut.amountInCzk" name="amountInCzk" required /> CZK
+  </div>
+  <div class="upto">Cash out up to:&nbsp;&nbsp;&nbsp;&nbsp; {{balance | async}} CZK</div>
+  <button type="submit" [disabled]="!cashOutForm.form.valid" class="pure-button" [disabled]="loading">{{loading ? "Loading…" : "Submit"}}</button>
+  <div *ngIf="error" class="error">
+    You entered invalid cash out, try again.
+  </div>
+</form>

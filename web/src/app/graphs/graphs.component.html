@@ -1,0 +1,27 @@
+<div class="pure-menu pure-menu-horizontal right" id="TimeRangeMenu" *ngIf="showTimePicker">
+  <ul class="pure-menu-list">
+      <li class="pure-menu-item" [ngClass]="{'pure-menu-selected': selectedMenuItem == item.id}" *ngFor="let item of menuItems">
+          <a href="#" class="pure-menu-link" (click)="menuClicked(item)">{{item.title}}</a>
+      </li>
+  </ul>
+</div>  
+
+<h2 id="ALLTitle">ADC/IDC/XPC</h2>
+<div class="chart_wrapper">
+  <canvas id="CombinedChart" height="200"></canvas>
+</div>
+
+<h2 id="ADCTitle">ADC</h2>
+<div class="chart_wrapper">
+  <canvas id="ADCChart" height="200"></canvas>
+</div>
+
+<h2 id="IDCTitle">IDC</h2>
+<div class="chart_wrapper">
+  <canvas id="IDCChart" height="200"></canvas>
+</div>
+
+<h2 id="XPCTitle">XPC</h2>
+<div class="chart_wrapper">
+  <canvas id="XPCChart" height="200"></canvas>
+</div>

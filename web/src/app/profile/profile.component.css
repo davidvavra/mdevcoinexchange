@@ -1,0 +1,13 @@
+div.right {
+    float: right;
+}
+td.right {
+    text-align: right;
+}
+div.separator {
+    margin-top: 20px;
+}
+a {
+    text-decoration: underline;
+    cursor: pointer;
+}

@@ -1,0 +1,19 @@
+<form (ngSubmit)="onSubmit()" #newOfferForm="ngForm">
+  <div> 
+    <label for="amountOffered">Sell</label>
+    <input type="number" id="amountOffered" [(ngModel)]="offer.amountOffered" name="amountOffered" required />
+    <app-currency-picker (change)="currencyOfferedChanged($event.target.value)"></app-currency-picker>
+  </div> 
+  <div>
+    <label for="amountOffered">For&nbsp;</label>
+    <input type="number" id="amountRequired" [(ngModel)]="offer.amountRequired" name="amountRequired" required/>
+    <app-currency-picker (change)="currencyRequiredChanged($event.target.value)"></app-currency-picker>
+  </div>
+  <div class="market_price" *ngIf="marketPriceVisible">
+   Market price: {{marketPrice | number:'0.0-5'}} {{offer.currencyRequired}}
+  </div>
+  <button type="submit" [disabled]="!newOfferForm.form.valid" class="pure-button" [disabled]="loading">{{loading ? "Loading…" : "Submit"}}</button>
+  <div *ngIf="error" class="error">
+    You entered invalid offer, try again.
+  </div>
+</form>

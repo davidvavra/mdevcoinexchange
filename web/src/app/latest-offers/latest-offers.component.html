@@ -1,0 +1,12 @@
+<hr />
+<h2>Latest offers</h2>
+<hr />
+
+<table class="list">
+  <tr class="list"><th>Offer</th> <th>For</th> <th>CZK/1 coin</th> </tr>
+    <tr *ngFor="let offer of offers | async" class="list">
+        <td>{{offer.amountOffered | number:'0.2-5'}} {{offer.currencyOffered}}</td>
+        <td>{{offer.amountRequired | number:'0.2-5'}} {{offer.currencyRequired}}</td>
+        <td>{{offer.oneOfferedCoinInCzk | number:'0.5'}}</td>
+    </tr>
+</table>

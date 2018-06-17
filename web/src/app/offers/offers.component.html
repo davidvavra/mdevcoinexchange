@@ -1,0 +1,26 @@
+<div class="filter">
+    Filter: 
+    <select (change)="filterOffersChanged($event.target.value)">
+        <option value="ALL">offers all</option>
+        <option value="ADC">offers ADC</option>
+        <option value="IDC">offers IDC</option>
+        <option value="XPC">offers XPC</option>
+    </select>
+    <select (change)="filterForChanged($event.target.value)">
+        <option value="ALL">for all</option>
+        <option value="ADC">for ADC</option>
+        <option value="IDC">for IDC</option>
+        <option value="XPC">for XPC</option>
+    </select>
+</div>
+
+<table class="list">
+  <tr class="list"><th class="not-important">Addr</th><th>Offers</th><th>For</th><th>CZK/1</th></tr>
+    <tr *ngFor="let offer of offers | async" class="list">
+        <td width="15%" class="not-important">{{offer.sellerId}}</td>
+        <td width="22%">{{offer.amountOffered | number:'0.0-5'}} {{offer.currencyOffered}}</td>
+        <td width="22%">{{offer.amountRequired | number:'0.0-5'}} {{offer.currencyRequired}}</td>
+        <td width="26%">{{offer.oneOfferedCoinInCzk | number:'0.2-5'}}</td>
+        <td width="15%" class="right"><button class="pure-button" (click)="buyOrCancelClicked(offer)" [disabled]="loading || !offer.canBuy">{{offer.own ? "Cancel" : "Buy"}}</button></td>
+    </tr>
+</table>

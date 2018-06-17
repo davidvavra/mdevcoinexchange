@@ -1,0 +1,25 @@
+h1 {
+    font-size: 2em;
+    padding-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.wrapper {
+    height: 100%;
+    position: fixed;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.chart {
+    left: 0;
+    width: 60%;
+}
+
+.info {
+    right: 0;
+    width: 30%;
+}

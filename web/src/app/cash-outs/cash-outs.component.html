@@ -1,0 +1,10 @@
+<table class="list">
+  <tr class="list">
+    <th>Address</th>
+    <th>Paid in CZK</th>
+  </tr>
+  <tr *ngFor="let cashOut of cashOuts | async" class="list">
+    <td>{{cashOut.userId}}</td>
+    <td>{{cashOut.amountInCzk | number:'0.2-5'}}</td>
+  </tr>
+</table>

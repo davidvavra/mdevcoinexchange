@@ -1,0 +1,166 @@
+// = Firebase Security Rules which gets compiled by Bolt =
+// Guide: https://github.com/firebase/bolt/blob/master/docs/guide.md
+// Language documentation: https://github.com/firebase/bolt/blob/master/docs/language.md
+// Compile locally by running: `firebase-bolt < database.rules.bolt`
+
+//
+// Exchange rates
+//
+
+path /averageRatesInCzk {
+  read() { true }
+}
+
+//
+// Balances 
+// 
+
+path /balances/{user_id} {
+  read() { isCurrentUser(user_id) }
+}
+
+//
+// Coins owed by attendees
+//
+
+path /coinsOwnedByAttendees {
+  read() { true }
+}
+
+//
+// Cash outs
+//
+
+path /cashOuts {
+  read() { isCashUser() }
+  index() { "validated" }
+
+  path /{cash_out_id} is CashOut {
+    read() { isSignedIn() }
+    write() { isSignedInAndInsert(this) }
+  }
+}
+
+type CashOut {
+  userId: CurrentUserId,
+  amountInCzk: PositiveNumber
+}
+
+//
+// Transfers
+//
+
+path /transfers/{transfer_id} is Transfer {
+  read() { isSignedIn() }
+  write() { isSignedInAndInsert(this) }
+}
+
+type Transfer {
+  fromUser: CurrentUserId,
+  toUser: UserId,
+  amount: PositiveNumber,
+  currency: Currency
+
+  validate() { this.fromUser != this.toUser }
+}
+
+//
+// Offers
+//
+
+path /offers {
+  read() { isSignedIn() }
+
+  path /{offer_id} is Offer {
+    write() { isSignedInAndInsert(this) || prior(this).sellerId == auth.uid }
+    index() { "oneOfferedCoinInCzk" }
+
+    path /buyerId is CurrentUserId {
+      write() { isSignedIn() }
+    }
+  }
+}
+
+type Offer {
+  amountOffered: PositiveNumber,
+  amountRequired: PositiveNumber,
+  currencyOffered: Currency,
+  currencyRequired: Currency,
+  sellerId: CurrentUserId
+
+  validate() { this.currencyOffered != this.currencyRequired }
+}
+
+//
+// Users
+//
+
+path /users/{user_id} is UserData {
+  read() { isCurrentUser(user_id) }
+  write() { isCurrentUser(user_id) }
+}
+
+type UserData {
+  password: String
+}
+
+//
+// One Coin In CZK
+//
+
+path /oneCoinInCzk {
+  index() { "timestamp" }
+}
+
+//
+// Transactions
+//
+
+path /transactions {
+  read() { isSignedIn() }
+  index() { ["buyerId", "sellerId"] }
+}
+
+//
+// Helper functions
+//
+
+isSignedIn() {
+    auth != null
+}
+
+isCurrentUser(user_id) {
+    isSignedIn() && auth.uid == user_id
+}
+
+isInsert(value) {
+    prior(value) == null && value != null
+}
+
+isSignedInAndInsert(value) {
+  isSignedIn() && isInsert(value)
+}
+
+isCashUser() {
+  isSignedIn() && auth.uid == "CASH"
+}
+
+//
+// Common types
+//
+
+type CurrentUserId extends String {
+  validate() { isSignedIn() && this == auth.uid }
+}
+
+type UserId extends String {
+  validate() { this.length == 4 }
+}
+
+type Currency extends String {
+  validate() { this == "ADC" || this == "XPC" || this == "IDC" }
+}
+
+type PositiveNumber extends Number {
+  validate() { this > 0}
+}

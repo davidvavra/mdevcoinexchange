@@ -1,0 +1,11 @@
+export const VALUE_OF_PRIZES = 300000
+export const NUMBER_OF_BADGES = 800
+export const ALL_COINS_CZK_VALUE = Math.round(VALUE_OF_PRIZES * 1.666666666)
+export const ALL_COINS_COUNT = ALL_COINS_CZK_VALUE
+export const ATTENDEE_INITIAL_COIN_AMOUNT = Math.round(ALL_COINS_COUNT * 0.1 / NUMBER_OF_BADGES / 3)
+export const PARTNERS_COIN_AMOUNT = Math.round(ALL_COINS_COUNT * 0.5)
+export const ORGS_UID = "ORGS"
+export const CASH_OUT_UID = "CASH"
+export const SPECIAL_UIDS: Array<string> = [ORGS_UID, "FAKE", CASH_OUT_UID, "MSDP", "AVST", "ADON", "MSFT", "EMAN", "ETNT", "JETB", "LMCP", "NODE", "ALZA", "STRV", "KIWI"]
+export const PARTNER_LEVELS = { "MSDP": 5, "AVST": 5, "ADON": 2, "MSFT": 2, "EMAN": 1, "ETNT": 1, "JETB": 1, "LMCP": 1, "NODE": 1, "ALZA": 1, "STRV": 1, "KIWI": 1 }
+export const PARTNER_CURRENCIES = { "MSDP": "IDC", "AVST": "ADC", "ADON": "ADC", "MSFT": "XPC", "EMAN": "XPC", "ETNT": "XPC", "JETB": "XPC", "LMCP": "XPC", "NODE": "XPC", "ALZA": "IDC", "STRV": "IDC", "KIWI": "XPC" }

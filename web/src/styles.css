@@ -1,0 +1,97 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700');
+
+/* You can add global styles to this file, and also import other style files */
+body {
+    color: #4e5b6b;
+    padding: 20px;
+    /*font-family: 'Courier New', Courier, monospace;*/
+    font-family: 'Roboto Mono', monospace;
+    font-weight: normal;
+}
+h1 {
+    font-size: 1em;
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+    /*font-style: italic;*/
+}
+h2 {
+    font-size: 1em;
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+}
+h3 {
+    font-size: 1em;
+    padding: 0px;
+    margin: 0px;
+    font-weight: normal;
+}
+abbr {
+    text-decoration: none;
+}
+input {
+    width: 100px;
+    margin-top: 10px;
+    border: 1px solid black;
+}
+button {
+    margin-top: 10px;
+    margin-left: 48px;
+    border-radius: 5px;
+}
+.pure-button {
+    color: #ffffff;
+    background: #3485da;
+    border-radius: 5px;
+}
+.error {
+    margin-top: 10px;
+    margin-left: 48px;
+    color: #f44336;
+}
+hidden {
+    visibility: hidden;
+}
+.right {
+    text-align: right;
+}
+
+.pure-menu-horizontal {
+    white-space: normal;
+}
+.pure-menu-link {
+    color: #728aad;
+    border-radius: 5px;
+}
+.pure-menu-selected {
+    color: #3485da;
+    background: #f2f6f9;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+table.list {
+    width: 100%;
+    border-collapse: collapse;
+}
+th {
+    text-align: left;
+    font-weight: bold;
+}
+tr.list { 
+    border: solid;
+    border-width: 1px 0;
+    border-color: #f2f6f9;
+    height: 42px;
+}
+tr.list:first-child {
+    border-top: none;
+}
+tr.list:last-child {
+    border-bottom: none;
+}
+.not-important {
+    color:#aaaaaa
+}

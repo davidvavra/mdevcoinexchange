@@ -1,0 +1,18 @@
+button {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.right {
+    text-align: right;
+}
+.filter {
+    text-align: right;
+    margin-bottom: 10px;
+}
+tr {
+    font-size: 0.8em;
+}
+td {
+    font-size: 0.8em;
+}

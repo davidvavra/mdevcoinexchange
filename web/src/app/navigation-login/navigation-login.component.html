@@ -1,0 +1,45 @@
+<div *ngIf="showSignedIn">
+    <app-profile></app-profile>
+    <hr />
+    <div class="pure-menu pure-menu-horizontal">
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item" [ngClass]="{'pure-menu-selected': selectedMenuItem == item.id}" *ngFor="let item of menuItems">
+                <a href="#" class="pure-menu-link" (click)="menuClicked(item)">{{item.title}}</a>
+            </li>
+        </ul>
+    </div>
+    <hr />
+    <app-offers *ngIf="selectedMenuItem == 0"></app-offers>
+    <app-new-offer *ngIf="selectedMenuItem == 1" (created)="offerCreated()"></app-new-offer>
+    <app-new-transfer *ngIf="selectedMenuItem == 2" (created)="transferCreated()"></app-new-transfer>
+    <app-my-transactions *ngIf="selectedMenuItem == 3"></app-my-transactions>
+    <app-graphs *ngIf="selectedMenuItem == 4"></app-graphs>
+    <app-coins-owned-by-attendees *ngIf="selectedMenuItem == 4"></app-coins-owned-by-attendees>
+    <app-new-cash-out *ngIf="selectedMenuItem == 5" (created)="cashOutCreated()"></app-new-cash-out>
+    <app-rules *ngIf="selectedMenuItem == 6"></app-rules>
+</div>
+<div *ngIf="showLogin">
+    <h1>Login</h1>
+    <br />
+    <label for="privateKey">Enter private key from your badge to access your coins:</label>
+    <br />
+    <input type="text" #privateKey id="privateKey" />
+    <br />
+    <div [ngClass]="{'hidden': !showPassword }">
+        <br />
+        <label for="password">This private key is password-protected, enter password:</label>
+        <br />
+        <input type="password" id="password" #password />
+    </div>
+    <button (click)="login(privateKey.value, password)" class="pure-button" [disabled]="loading">{{loading ? "Loading…" : "Submit"}}</button>
+    <div *ngIf="privateKeyError" class="error">
+        Wrong private key, try again.
+    </div>
+    <div *ngIf="passwordError" class="error">
+        Invalid password, try again.
+    </div>
+    <br />
+    <br />
+    <h1>About the game</h1>
+    <app-rules></app-rules>
+</div>

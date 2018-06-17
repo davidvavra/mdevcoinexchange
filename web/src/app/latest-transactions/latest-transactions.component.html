@@ -1,0 +1,13 @@
+<hr />
+<h2>Latest transactions</h2>
+<hr />
+
+<table class="list">
+  <tr class="list"><th>Addr</th><th>Sent</th><th>To</th><th>For</th></tr>
+    <tr *ngFor="let transaction of transactions | async" class="list">
+        <td width="18%">{{transaction.sellerId}}</td>
+        <td width="32%">{{transaction.amountOffered | number:'0.5'}} {{transaction.currencyOffered}}</td>
+        <td width="18%">{{transaction.buyerId}}</td>
+        <td width="32%">{{formatRequired(transaction)}}</td>
+    </tr>
+</table>

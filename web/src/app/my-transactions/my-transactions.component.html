@@ -1,0 +1,16 @@
+<table class="list">
+    <tr class="list">
+      <th>Addr</th>
+      <th>Sent</th>
+      <th>To</th>
+      <th>For</th>
+      <th>At</th>
+    </tr>
+    <tr *ngFor="let transaction of transactions | async" class="list">
+      <td width="15%" [ngClass]="{'not-important': transaction.sellerId == userId}">{{transaction.sellerId}}</td>
+      <td width="23%">{{transaction.amountOffered | number:'0.0-5'}} {{transaction.currencyOffered}}</td>
+      <td width="15%" [ngClass]="{'not-important': transaction.buyerId == userId}">{{transaction.buyerId}}</td>
+      <td width="23%">{{formatRequired(transaction)}}</td>
+      <td width="24%">{{transaction.timestamp | date:'mediumTime'}}</td>
+    </tr>
+  </table>

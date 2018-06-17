@@ -1,0 +1,103 @@
+{
+  "oneCoinInCzk" : {
+    "L8dnaaadaslda" : {
+      "IDC" : 13.3,
+      "XPC" : 6.6,
+      "timestamp" : 1521213980,
+      "weightIDC" : 120,
+      "weightXPC" : 60
+    }
+  },
+  "averageRatesInCzk" : {
+    "1521213980" : {
+      "IDC" : 13.3,
+      "XPC" : 6.6,
+      "ADC" : 12.7
+    },
+    "latest" : {
+      "IDC" : 13.3,
+      "XPC" : 6.6,
+      "ADC" : 12.7
+    }
+  },
+  "balances" : {
+    "a54c" : {
+      "ADC" : 125,
+      "IDC" : 52,
+      "XPC" : 12
+    },
+    "d8cb" : {
+      "ADC" : 250,
+      "IDC" : 451,
+      "XPC" : 452
+    }
+  },
+  "coinsOwnedByAttendees" : {
+    "ADC" : 33000,
+    "IDC" : 68000,
+    "XPC" : 33000
+  },
+  "cashOuts" : {
+    "-L8dnsajkdaslda" : {
+      "userId" : "a54c",
+      "amountInCzk" : 100,
+      "validated" : false
+    }
+  },
+  "transfers" : {
+    "-L8dnsajkdaslda" : {
+      "fromUser" : "a54c",
+      "toUser" : "d8cb",
+      "amount" : 10,
+      "currency" : "XPC",
+      "validated" : false
+    }
+  },
+  "offers" : {
+    "-L8dnsajkdaslda" : {
+      "amountOffered" : 160,
+      "amountRequired" : 150,
+      "currencyOffered" : "IDC",
+      "currencyRequired" : "XPC",
+      "sellerId" : "d8cb",
+      "oneOfferedCoinInCzk": 0.333
+    },
+    "-L8dnaaadaslda" : {
+      "amountOffered" : 10,
+      "amountRequired" : 50,
+      "currencyOffered" : "ADC",
+      "currencyRequired" : "IDC",
+      "sellerId" : "d8cb",
+      "oneOfferedCoinInCzk": 0.4553
+    },
+    "-L8dnsajkalda" : {
+      "amountOffered" : 120,
+      "amountRequired" : 10,
+      "currencyOffered" : "XPC",
+      "currencyRequired" : "IDC",
+      "sellerId" : "d8cb",
+      "oneOfferedCoinInCzk": 0.133
+    }
+  },
+  "transactions" : {
+    "-L7jFUTaG854da85CY1k" : {
+      "amountOffered" : 60,
+      "amountRequired" : 120,
+      "buyerId" : "d8cb",
+      "currencyOffered" : "XPC",
+      "currencyRequired" : "IDC",
+      "sellerId" : "a54c",
+      "timestamp" : 1521812470
+    }
+  },
+  "users" : {
+    "a54c" : {
+      "password" : "521d9as41"
+    },
+    "d8cb" : {
+      "password" : "ag25P64"
+    }
+  },
+  "privateKeys" : {
+    "vqswyubt": "36bb"
+  }}

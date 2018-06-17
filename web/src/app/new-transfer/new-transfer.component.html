@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit()" #newTransferForm="ngForm">
+  <div>
+    <label for="amount">Send</label>
+    <input type="number" id="amount" [(ngModel)]="transfer.amount" name="amount" required />
+    <app-currency-picker (change)="currencyChanged($event.target.value)" [selected]="transfer.currency"></app-currency-picker>
+  </div>
+  <div>
+    <label for="toUser">To&nbsp;&nbsp;</label>
+    <input type="text" id="toUser" [(ngModel)]="transfer.toUser" name="toUser" required minlength="4" maxlength="4" />
+  </div>
+  <button type="submit" [disabled]="!newTransferForm.form.valid" class="pure-button" [disabled]="loading">{{loading ? "Loading…" : "Submit"}}</button>
+  <div *ngIf="error" class="error">
+    The recipient didn't login yet or you don't have enough balance.
+  </div>
+</form>

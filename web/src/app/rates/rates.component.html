@@ -1,0 +1,17 @@
+<hr />
+<h2>Current exchange rates</h2>
+<hr />
+
+<div *ngIf="rates | async; let rate">
+<table class="list">
+  <tr>
+    <td>1 ADC = {{rate.ADC | number:'0.5'}} CZK</td>
+  </tr>
+  <tr>
+    <td>1 IDC = {{rate.IDC | number:'0.5'}} CZK</td>
+  </tr>
+  <tr>
+    <td>1 XPC = {{rate.XPC | number:'0.5'}} CZK</td>
+  </tr>
+</table>
+</div>
