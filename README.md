@@ -3,9 +3,10 @@ Conference gamification inspired by cryptocurrency market
 
 ## Try it
 - [UI for attendees and partners](http://ex.mdevcamp.eu)
-- [UI for TV](http://ex.mdevcamp.eu/tv)
-- [UI for cash outs](http://ex.mdevcamp.eu/cash-outs)
+- [UI for TV](http://ex.mdevcamp.eu/tv) (you need to be logged in as any user)
+- [UI for cash outs](http://ex.mdevcamp.eu/cash-outs) (you need to be logged in as CASH user)
 - [UI for available prizes](https://docs.google.com/spreadsheets/d/17lB_dQh59POsdNgU_Y2qt6Xq6IIfh6ag8Q2hPJMWEHA/edit?usp=sharing)
+
 (find private keys for login in `clean-database.json`)
 
 ## Technologies
