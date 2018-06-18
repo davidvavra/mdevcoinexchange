@@ -1,6 +1,8 @@
 # mDevCoinExchange
 Conference gamification inspired by cryptocurrency market
 
+[Learn more details from the blogpost](https://medium.com/mdevcamp/mdevcoinexchange-a-successful-conference-gamification-based-on-firebase-and-angular-fc7efee53da0)
+
 ## Try it
 - [UI for attendees and partners](http://ex.mdevcamp.eu)
 - [UI for TV](http://ex.mdevcamp.eu/tv) (you need to be logged in as any user)
